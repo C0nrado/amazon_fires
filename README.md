@@ -10,17 +10,24 @@ The data supporting this study comes mainly from the satellite monitoring system
 
 3. Machine Learning Modelling -  The last part of this research aims to produce a predicting model for heatspots based on climate data alone and the insights/conclusions drawn from the earlier analysis and explorations. Questions dealt with in this section refers to the transformations and tunning used in the optimization of the regression model chosen to take on the machine learninig task.
 
+<br> 
+
 ## Table of Contents 
-1. Contents (repository)
-2. Executive Summary
-    1. EDA part I: Clustering
-    2. EDA part II: Time Series Analysis and PCA
-    3. Analysis of Heatspots in Amazon
-    4. Machine Learning: Predicting Heatspots 
 
-3. Final Thoughts
+1. [Contents](#contents) (repository)
+2. [Executive Summary](#summary)
+    1. [EDA part I: Clustering](#eda1)
+    2. [EDA part II: Time Series Analysis and PCA](eda2)
+    3. [Analysis of Heatspots in Amazon](#heatspots_analysis)
+    4. [Machine Learning: Predicting Heatspots](#ml)
 
-## 1. CONTENTS (repository)
+3. [Final Thoughts](#final-thoughts)
+
+<br>
+
+* * *
+
+## 1. CONTENTS (repository) <a name="contents"></a>
 
 * `01_wheather_analysis.ipynb` - *Notebook with all work performed on the first part of this research (wheather analysis).*
 * `02_heatspots_analisys.ipynb` - *Notebook with all work done for the second part of this research (heatspots analysis).*
@@ -35,7 +42,7 @@ The data supporting this study comes mainly from the satellite monitoring system
     * `misc` - *Directory contaning files of minor importance.*
 * `resources` - *Directory containing the core python modules used and developed in this project.*
 
-## 2. SUMMARY
+## 2. SUMMARY <a name="summary"></a>
 
 The data from satellite monitoring of heatspots over brazilian territory is available from 1998 up to 2017. The notebook `02_heatspots_analysis.ipynb` carries out in detail the work done regarding this data. One of the conclusions was that the state **AM** (in red on the image below) is the one suffering from the highest rate in number of heatspots. Being located in the heart of the amazon biome (in green) it has a direct parallel with the forest fires happenning in the rainforest.
 
@@ -61,7 +68,7 @@ Under this criteria the data is aggregated in order to be representative of the 
 | deltaTemp | The difference between the average max and min temperatures |
 <br>
 
-### 2.1. EDA part I: Clustering
+### 2.1. EDA part I: Clustering <a name="eda1"></a>
 
 The *clustering analysis* was optimized through 2 independent approaches (elbow and silhouette methods), both supporting strongly the existence of two main clusters with distinct characteristics. The graph below on the left compreehends these 2 clusters from where the main difference between them can be drawn:
 > Generally speaking, there are *dry* months of *high temperature* and *colder cloudy-wet* months.
@@ -72,7 +79,7 @@ By looking at the distribution of such months (clusters) it's clear that they ha
 
 <br>
 
-### 2.2. EDA part II: Time Series Analysis and PCA
+### 2.2. EDA part II: Time Series Analysis and PCA <a name="eda2"></a>
 
 The *Principal Component Analysis* extracts two main *degrees of freedom* from the climate variables, which together explain nearly 90% of all the data. The *1st principal component* will present the same ideas brought forth by clustering the data, whereas the *2nd principal component* will agglutinate characteristics of both seasons. It stands out that the 2nd components will *bust strongly the `avgTemp`* variable. 
 
@@ -112,7 +119,7 @@ The same procedure was taken for the trend on the 1st principal component but it
     =================================================================
      0.029               0.020                   -0.010     0.068
 
-### 2.3. Analysis of Heatspots in Amazon
+### 2.3. Analysis of Heatspots in Amazon <a name="heatspots_analysis"></a>
 
 With the heatspots data set in hands is possible to investigate how does the number/quantity of heatspots correlates with the already achieved findings. Thus each month in the series is categorized based on the value of its coefficient (referring to the 1st principal component). The following table summarizes this categorization task:
 
@@ -138,7 +145,7 @@ This analysis is carried out in the notebook `02_heatspots_analysis.ipynb` where
 
 <br>
 
-### 2.4. Machine Learning Model: Predicting Heatspots
+### 2.4. Machine Learning Model: Predicting Heatspots <a name="ml"></a>
 
 The next step in this work was the building and evaluation of a machine learning model for predicting the number of heatspots while accounting for all insights and findings gathered during the previous analysis. The prediction is a regression task since the goal is a continuous numeric value and all preprocessing of the data is already performed on the first stages of this work.
 
@@ -168,7 +175,7 @@ The model can reproduce the rise and plunges of the true data. While its seems m
 
 <br>
 
-## 3. FINAL THOUGHTS
+## 3. FINAL THOUGHTS <a name="final_thoughts"></a>
 
 The work done in this research revealed and connection between the occurrence of heatstops and the climate aspects in the region. It was revealed through the analysis of several wheather measurements that the amazon wheather has very distinct patterns and the increase of heatspots happens in parallel to the intensity of a such patterns, a configuration of wheather variables that produce a rather dry and hot condition on specific periods of the year.
 
